@@ -25,7 +25,7 @@ int main()
         }
         multiset<lli> s;
         multiset<lli>::iterator it;
-        for(llit i=0; i<k; i++){
+        for(lli i=0; i<k; i++){
             s.insert(nums[i]);
         }
         it = s.end();
