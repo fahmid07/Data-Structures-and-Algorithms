@@ -6,7 +6,7 @@ typedef long long int lli;
 
 #define N 100007
 lli ara[N][60];
-
+lli lg[N];
 void buildSparse(vector<lli> vec, lli n){
     for(lli i=0; i<n; i++) ara[i][0] = vec[i];
 
@@ -18,7 +18,8 @@ void buildSparse(vector<lli> vec, lli n){
 }
 
 lli rmq(lli l, lli r){
-    lli j = (lli)(log2(r - l + 1));
+    //lli j = (lli)(log2(r - l + 1));
+    lli j = lg[r-l+1];
     return min(ara[l][j], ara[r - (1 << j) + 1][j]);
 }
 
@@ -37,7 +38,10 @@ int main()
     }
     n = vec.size();
 
+    lg[0] = 1;
+    for(lli i=2; i<=n; i++) lg[i] = lg[i/2] + 1;
     buildSparse(vec, n);
+
     cin >> q;
     while(q--){
         cin >> x >> y;
