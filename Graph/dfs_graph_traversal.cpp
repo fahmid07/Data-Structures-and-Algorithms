@@ -24,7 +24,7 @@ void dfs(int s){
     st.push(s);
     visited[s] = 1;
 
-    while(!isEmpty(st)){
+    while(!st.empty()){
         int x = st.top();
         st.pop();
         cout << x << " ";
@@ -49,7 +49,7 @@ void _dfs(int s){
     st.push(s);
     visited[s] = 1;
 
-    while(!isEmpty(st)){
+    while(!st.empty()){
         int x = st.top();
         st.pop();
         cout << x+1 << " ";
@@ -95,7 +95,7 @@ int main()
     for(int i=0; i<e; i++){
         cin >> x >> y;
         graph[x].push_back(y);
-        graph[y].push_back(x);
+        //graph[y].push_back(x);
     }
 
     cout << "\n";
